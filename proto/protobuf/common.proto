@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package common;
+option go_package = "github.com/yuwenhui/gin-starter/proto";
+
+message TaskItem {
+    int32  user_id = 1;
+    string title = 2;
+    string summary = 3;
+}

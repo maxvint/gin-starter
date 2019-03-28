@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "proto/protobuf/common.proto";
+package task;
+option go_package = "github.com/yuwenhui/gin-starter/proto";
+
+// GET /api/v1/tasks
+message TaskResponse {
+    repeated common.TaskItem tasks = 1;
+}
