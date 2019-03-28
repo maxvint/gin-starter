@@ -25,11 +25,11 @@ noverify = ["golang.org/x/sys", "golang.org/x/crypto"]
 [[override]]
   name = "github.com/golang/protobuf"
   version = "v1.2.0"
-  source = "github.com/golang/protobuf"
+  source = "https://github.com/golang/protobuf"
 
 [[override]]
   name = "github.com/yuwenhui/gopkg"
   branch = "master"
-  source = "github.com/yuwenhui/gopkg.git"
+  source = "https://github.com/yuwenhui/gopkg.git"
 
 
