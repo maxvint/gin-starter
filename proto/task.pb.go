@@ -20,38 +20,84 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // GET /api/v1/tasks
-type TaskResponse struct {
+type GetTasksRequest struct {
+	PageSize             int32    `protobuf:"varint,1,opt,name=page_size,json=pageSize,proto3" json:"page_size"`
+	PageMax              int32    `protobuf:"varint,2,opt,name=page_max,json=pageMax,proto3" json:"page_max"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetTasksRequest) Reset()         { *m = GetTasksRequest{} }
+func (m *GetTasksRequest) String() string { return proto.CompactTextString(m) }
+func (*GetTasksRequest) ProtoMessage()    {}
+func (*GetTasksRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_task_1b76504a0eae43c1, []int{0}
+}
+func (m *GetTasksRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetTasksRequest.Unmarshal(m, b)
+}
+func (m *GetTasksRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetTasksRequest.Marshal(b, m, deterministic)
+}
+func (dst *GetTasksRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTasksRequest.Merge(dst, src)
+}
+func (m *GetTasksRequest) XXX_Size() int {
+	return xxx_messageInfo_GetTasksRequest.Size(m)
+}
+func (m *GetTasksRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTasksRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTasksRequest proto.InternalMessageInfo
+
+func (m *GetTasksRequest) GetPageSize() int32 {
+	if m != nil {
+		return m.PageSize
+	}
+	return 0
+}
+
+func (m *GetTasksRequest) GetPageMax() int32 {
+	if m != nil {
+		return m.PageMax
+	}
+	return 0
+}
+
+type GetTasksResponse struct {
 	Tasks                []*TaskItem `protobuf:"bytes,1,rep,name=tasks,proto3" json:"tasks"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
 	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *TaskResponse) Reset()         { *m = TaskResponse{} }
-func (m *TaskResponse) String() string { return proto.CompactTextString(m) }
-func (*TaskResponse) ProtoMessage()    {}
-func (*TaskResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_199896180c77aa3f, []int{0}
+func (m *GetTasksResponse) Reset()         { *m = GetTasksResponse{} }
+func (m *GetTasksResponse) String() string { return proto.CompactTextString(m) }
+func (*GetTasksResponse) ProtoMessage()    {}
+func (*GetTasksResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_task_1b76504a0eae43c1, []int{1}
 }
-func (m *TaskResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_TaskResponse.Unmarshal(m, b)
+func (m *GetTasksResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetTasksResponse.Unmarshal(m, b)
 }
-func (m *TaskResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_TaskResponse.Marshal(b, m, deterministic)
+func (m *GetTasksResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetTasksResponse.Marshal(b, m, deterministic)
 }
-func (dst *TaskResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TaskResponse.Merge(dst, src)
+func (dst *GetTasksResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTasksResponse.Merge(dst, src)
 }
-func (m *TaskResponse) XXX_Size() int {
-	return xxx_messageInfo_TaskResponse.Size(m)
+func (m *GetTasksResponse) XXX_Size() int {
+	return xxx_messageInfo_GetTasksResponse.Size(m)
 }
-func (m *TaskResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_TaskResponse.DiscardUnknown(m)
+func (m *GetTasksResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTasksResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_TaskResponse proto.InternalMessageInfo
+var xxx_messageInfo_GetTasksResponse proto.InternalMessageInfo
 
-func (m *TaskResponse) GetTasks() []*TaskItem {
+func (m *GetTasksResponse) GetTasks() []*TaskItem {
 	if m != nil {
 		return m.Tasks
 	}
@@ -59,20 +105,25 @@ func (m *TaskResponse) GetTasks() []*TaskItem {
 }
 
 func init() {
-	proto.RegisterType((*TaskResponse)(nil), "task.TaskResponse")
+	proto.RegisterType((*GetTasksRequest)(nil), "task.GetTasksRequest")
+	proto.RegisterType((*GetTasksResponse)(nil), "task.GetTasksResponse")
 }
 
-func init() { proto.RegisterFile("proto/protobuf/task.proto", fileDescriptor_task_199896180c77aa3f) }
+func init() { proto.RegisterFile("proto/protobuf/task.proto", fileDescriptor_task_1b76504a0eae43c1) }
 
-var fileDescriptor_task_199896180c77aa3f = []byte{
-	// 142 bytes of a gzipped FileDescriptorProto
+var fileDescriptor_task_1b76504a0eae43c1 = []byte{
+	// 203 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x2c, 0x28, 0xca, 0x2f,
 	0xc9, 0xd7, 0x07, 0x93, 0x49, 0xa5, 0x69, 0xfa, 0x25, 0x89, 0xc5, 0xd9, 0x7a, 0x60, 0x9e, 0x10,
 	0x0b, 0x88, 0x2d, 0x25, 0x8d, 0xa6, 0x20, 0x39, 0x3f, 0x37, 0x37, 0x3f, 0x0f, 0xa2, 0x44, 0xc9,
-	0x8c, 0x8b, 0x27, 0x24, 0xb1, 0x38, 0x3b, 0x28, 0xb5, 0xb8, 0x20, 0x3f, 0xaf, 0x38, 0x55, 0x48,
-	0x8d, 0x8b, 0x15, 0xa4, 0xa9, 0x58, 0x82, 0x51, 0x81, 0x59, 0x83, 0xdb, 0x48, 0x40, 0x0f, 0xaa,
-	0x1a, 0xa4, 0xc8, 0xb3, 0x24, 0x35, 0x37, 0x08, 0x22, 0xed, 0xa4, 0x1e, 0xa5, 0x9a, 0x9e, 0x59,
-	0x92, 0x51, 0x9a, 0x04, 0x52, 0xa0, 0x5f, 0x59, 0x5a, 0x9e, 0x9a, 0x97, 0x51, 0x9a, 0xa9, 0x9f,
-	0x9e, 0x99, 0xa7, 0x5b, 0x5c, 0x92, 0x58, 0x54, 0x92, 0x5a, 0x04, 0xb5, 0x90, 0x0d, 0x4c, 0x19,
-	0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0xbf, 0x34, 0x6c, 0x9d, 0xa7, 0x00, 0x00, 0x00,
+	0x93, 0x8b, 0xdf, 0x3d, 0xb5, 0x24, 0x24, 0xb1, 0x38, 0xbb, 0x38, 0x28, 0xb5, 0xb0, 0x34, 0xb5,
+	0xb8, 0x44, 0x48, 0x9a, 0x8b, 0xb3, 0x20, 0x31, 0x3d, 0x35, 0xbe, 0x38, 0xb3, 0x2a, 0x55, 0x82,
+	0x51, 0x81, 0x51, 0x83, 0x35, 0x88, 0x03, 0x24, 0x10, 0x9c, 0x59, 0x95, 0x2a, 0x24, 0xc9, 0x05,
+	0x66, 0xc7, 0xe7, 0x26, 0x56, 0x48, 0x30, 0x81, 0xe5, 0xd8, 0x41, 0x7c, 0xdf, 0xc4, 0x0a, 0x25,
+	0x2b, 0x2e, 0x01, 0x84, 0x51, 0xc5, 0x05, 0xf9, 0x79, 0xc5, 0xa9, 0x42, 0x6a, 0x5c, 0xac, 0x20,
+	0x37, 0x14, 0x4b, 0x30, 0x2a, 0x30, 0x6b, 0x70, 0x1b, 0x09, 0xe8, 0x41, 0x2d, 0x07, 0xa9, 0xf2,
+	0x2c, 0x49, 0xcd, 0x0d, 0x82, 0x48, 0x3b, 0xa9, 0x47, 0xa9, 0xa6, 0x67, 0x96, 0x64, 0x94, 0x26,
+	0x81, 0x14, 0xe8, 0x57, 0x96, 0x96, 0xa7, 0xe6, 0x65, 0x94, 0x66, 0xea, 0xa7, 0x67, 0xe6, 0xe9,
+	0x16, 0x97, 0x24, 0x16, 0x95, 0xa4, 0x16, 0x41, 0xdd, 0xcf, 0x06, 0xa6, 0x8c, 0x01, 0x01, 0x00,
+	0x00, 0xff, 0xff, 0x35, 0x99, 0xcd, 0x7b, 0xf6, 0x00, 0x00, 0x00,
 }

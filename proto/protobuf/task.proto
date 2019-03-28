@@ -5,6 +5,11 @@ package task;
 option go_package = "github.com/yuwenhui/gin-starter/proto";
 
 // GET /api/v1/tasks
-message TaskResponse {
+message GetTasksRequest {
+    int32 page_size = 1;
+    int32 page_max = 2;
+}
+
+message GetTasksResponse {
     repeated common.TaskItem tasks = 1;
 }

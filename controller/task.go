@@ -14,7 +14,7 @@ func TaskList(c *apiutil.RequestContext) (apiutil.Message, *errno.ErrNo) {
 		return nil, errno.DBError
 	}
 
-	return &proto.TaskResponse{
+	return &proto.GetTasksResponse{
 		Tasks: tasks,
 	}, nil
 }

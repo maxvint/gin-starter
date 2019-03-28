@@ -7,20 +7,20 @@ import (
 )
 
 var (
-	ApiConfig AppConfig
+	AppConfig BaseConfig
 	DBConfig  *gorm.DB
 )
 
 func init() {
-	err := goutil.LoadConfigFor(&ApiConfig, "app.yaml")
+	err := goutil.LoadConfigFor(&AppConfig, "app.yaml")
 	if err != nil {
 		logs.Panicf("Load App Config error: %v", err)
 	}
 
-	DBConfig, err = ApiConfig.DBAddress.DB()
+	DBConfig, err = AppConfig.DBAddress.DB()
 	if err != nil {
 		logs.Panicf("DBAddress error: %v", err)
 	}
 
-	// Redis = APIConfig.RedisAPI.RedisClient()
+	// Redis = AppConfig.RedisAPI.RedisClient()
 }

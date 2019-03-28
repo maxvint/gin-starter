@@ -11,6 +11,8 @@ func GetTasks() ([]*proto.TaskItem, error) {
 	var list []*model.Task
 	err := config.DBConfig.Where("status = 1").Limit(10).Find(&list).Error
 
+	// var test = Pagination()
+
 	if err != nil {
 		return nil, err
 	}
@@ -27,4 +29,9 @@ func GetTasks() ([]*proto.TaskItem, error) {
 	}
 
 	return results, nil
+}
+
+func GetTaskList() ([]*proto.TaskItem, error) {
+	var list []*model.Task
+	result, err := Pagination(list)
 }

@@ -1,16 +1,20 @@
 package dal
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
-	"github.com/yuwenhui/gin-starter/model"
+	"github.com/yuwenhui/gin-starter/config"
+	_ "github.com/yuwenhui/gin-starter/model"
+	"github.com/yuwenhui/gin-starter/proto"
 )
 
-type Pagination struct {
-	Page     int
-	PageSize int
-}
+type ListModel []interface{}
 
-func (p *Pagination) Pagination(c *gin.Context, *model) (*gorm.DB,
-	error) {
+func Pagination(list ListModel) ([]*proto.Pagination, error) {
+	err := config.DBConfig.Where("status = 1").Limit(10).Find(&list).Error
+
+	if err != nil {
+		return nil, err
+	}
+
+	//results := make([]*proto.Pagination, 0, len(*list))
+	// return results, err
 }

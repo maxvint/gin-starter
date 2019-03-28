@@ -3,6 +3,15 @@ syntax = "proto3";
 package common;
 option go_package = "github.com/yuwenhui/gin-starter/proto";
 
+// 分页
+message Pagination {
+    int32 page = 1;
+    int32 page_size = 2;
+    int32 page_max = 3;
+    int32 total = 4;
+}
+
+// 任务详情
 message TaskItem {
     int32  user_id = 1;
     string title = 2;

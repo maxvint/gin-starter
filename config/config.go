@@ -2,10 +2,10 @@ package config
 
 import "github.com/yuwenhui/gopkg/dbutil"
 
-type AppConfig struct {
+type BaseConfig struct {
 	DBAddress *dbutil.MySQLAuth `yaml:"db_address"`
 }
 
-func (a *AppConfig) Verify() error {
+func (a *BaseConfig) Verify() error {
 	return nil
 }
