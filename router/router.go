@@ -1,4 +1,4 @@
-package main
+package router
 
 import (
 	"github.com/gin-gonic/gin"
@@ -6,9 +6,11 @@ import (
 	"github.com/yuwenhui/gopkg/apiutil"
 )
 
-func CreateRouter(r *gin.Engine) {
+func Initialize(r *gin.Engine) {
 	r.RedirectTrailingSlash = true
 
 	api := r.Group("/api/v1")
+
+	// Tasks
 	api.GET("/tasks", apiutil.API(controller.TaskList))
 }

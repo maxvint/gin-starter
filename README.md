@@ -20,13 +20,13 @@ $ dep ensure
 ```bash
 $ go run ./
 
-# You can use realize to hot reload
+# You can use realize to hot reload your application
 $ realize start --run --nc 
 ```
 
 ### Config
 ##### Config MySQL
-You will find the MySQL config file in `conf/app.yaml`. In which you can setup your database config information.
+You will find the MySQL config file in `conf/app.yaml`. In which you can setup your database config attribute.
 ```yaml
 db_address:
   database_name: test

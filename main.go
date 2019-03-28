@@ -5,6 +5,8 @@ import (
 	"net"
 	"net/http"
 
+	"github.com/yuwenhui/gin-starter/router"
+
 	"github.com/gin-gonic/gin"
 	"github.com/yuwenhui/gopkg/logs"
 )
@@ -28,7 +30,8 @@ func main() {
 
 	r := gin.Default()
 
-	CreateRouter(r)
+	// init router
+	router.Initialize(r)
 
 	// wait for server running
 	logs.Errorf("server running With error: %v", http.Serve(ln, r))
